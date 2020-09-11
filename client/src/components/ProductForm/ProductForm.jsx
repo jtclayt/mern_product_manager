@@ -5,22 +5,24 @@ import BASE_URL from '../../constants';
 import './ProductForm.css'
 
 const ProductForm = ({changePage}) => {
+  const NEW_PRODUCT_URL = `${BASE_URL}/products`
+
   useEffect(() => {
     changePage('new-product');
   }, [changePage]);
 
   const handleSubmit = e => {
     e.preventDefault();
-    const url = `${BASE_URL}/products`
+
     const newProduct = {
       title: e.target['title'].value,
       price: e.target['price'].value,
       description: e.target['description'].value
     };
 
-    Axios.post(url, newProduct)
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
+    Axios.post(NEW_PRODUCT_URL, newProduct)
+      .then(res => console.log(res.data.product))
+      .catch(err => console.error(err));
   }
 
   return (
