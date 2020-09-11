@@ -1,8 +1,8 @@
 const ProductController = require('../controllers/product.controller');
 
-const ExampleRoutes = app => {
+const ProductRoutes = app => {
   app.get('/api/products', ProductController.allProducts);
   app.post('/api/products', ProductController.createProduct);
 }
 
-module.exports = ExampleRoutes;
+module.exports = ProductRoutes;
