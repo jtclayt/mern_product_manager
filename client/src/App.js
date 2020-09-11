@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <NavBar currentPage={currentPage} />
-      <Router className="container text-center">
+      <Router className="container">
         <ProductList path="/products" changePage={changePage} />
         <ProductForm path="/products/new" changePage={changePage} />
       </Router>
