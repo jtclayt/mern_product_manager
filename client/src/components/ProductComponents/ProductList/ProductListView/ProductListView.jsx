@@ -9,7 +9,7 @@ const ProductListView = ({products}) => {
       <ul>
         {
           products.map((product, i) => {
-            <ProductListItemView key={i} product={product} />
+            return <ProductListItemView key={i} product={product} />
           })
         }
       </ul>

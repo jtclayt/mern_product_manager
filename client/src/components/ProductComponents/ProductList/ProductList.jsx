@@ -16,7 +16,7 @@ const ProductList = ({changePage}) => {
     Axios.get(PRODUCTS_URL)
       .then(res => setProducts(res.data.products))
       .catch(err => console.error(err));
-  })
+  }, [PRODUCTS_URL])
 
   return <ProductListView products={products} />;
 }
