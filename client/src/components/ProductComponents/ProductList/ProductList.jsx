@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
-import BASE_URL from '../../constants';
+import BASE_URL from '../../../constants';
+import ProductListView from './ProductListView/ProductListView';
+
 
 const ProductList = ({changePage}) => {
   const PRODUCTS_URL = `${BASE_URL}/products`;
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     changePage('products');
@@ -11,11 +14,11 @@ const ProductList = ({changePage}) => {
 
   useEffect(() => {
     Axios.get(PRODUCTS_URL)
-      .then(res => console.log(res.data.products))
+      .then(res => setProducts(res.data.products))
       .catch(err => console.error(err));
   })
 
-  return <h1>Product List</h1>;
+  return <ProductListView products={products} />;
 }
 
 export default ProductList;

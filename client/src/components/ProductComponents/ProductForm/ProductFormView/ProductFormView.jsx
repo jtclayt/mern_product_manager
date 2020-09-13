@@ -1,30 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {Button, Col, Form, Row} from 'react-bootstrap';
-import Axios from 'axios'
-import BASE_URL from '../../constants';
-import './ProductForm.css'
+import './ProductFormView.css'
 
-const ProductForm = ({changePage}) => {
-  const NEW_PRODUCT_URL = `${BASE_URL}/products`
-
-  useEffect(() => {
-    changePage('new-product');
-  }, [changePage]);
-
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    const newProduct = {
-      title: e.target['title'].value,
-      price: e.target['price'].value,
-      description: e.target['description'].value
-    };
-
-    Axios.post(NEW_PRODUCT_URL, newProduct)
-      .then(res => console.log(res.data.product))
-      .catch(err => console.error(err));
-  }
-
+const ProductFormView = ({handleSubmit}) => {
   return (
     <Row className="ProductForm">
       <Col md={4}>
@@ -73,4 +51,4 @@ const ProductForm = ({changePage}) => {
   );
 }
 
-export default ProductForm;
+export default ProductFormView;
