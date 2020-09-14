@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Col, Form, Row} from 'react-bootstrap';
 import './ProductForm.css'
 
-const ProductFormView = ({handleSubmit}) => {
+const ProductFormView = ({product, handleSubmit}) => {
   return (
     <Row className="ProductForm">
       <Col md={4}>
@@ -17,6 +17,7 @@ const ProductFormView = ({handleSubmit}) => {
               type="text"
               minLength="2"
               maxLength="50"
+              defaultValue={(product) ? product.title : ''}
               required
             />
           </Form.Group>
@@ -29,6 +30,7 @@ const ProductFormView = ({handleSubmit}) => {
               type="number"
               step="0.01"
               min="0"
+              defaultValue={(product) ? product.price : 0}
               required
             />
           </Form.Group>
@@ -40,11 +42,14 @@ const ProductFormView = ({handleSubmit}) => {
               name="description"
               minLength="5"
               maxLength="200"
+              defaultValue={(product) ? product.description : ''}
               required
             />
           </Form.Group>
 
-          <Button type="submit" className="btn">Add Product</Button>
+          <Button type="submit" className="btn">
+            {(product.title) ? "Update Product" : "Add Product"}
+          </Button>
         </Form>
       </Col>
     </Row>

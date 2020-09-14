@@ -19,7 +19,8 @@ function App() {
       <Router className="container">
         <ProductList path="/products" changePage={changePage} />
         <ProductForm path="/products/new" changePage={changePage} />
-        <ProductDetail path="/products/:id" />
+        <ProductDetail path="/products/:id" changePage={changePage} />
+        <ProductForm path="/products/:id/update" changePage={changePage} />
       </Router>
     </div>
   );
