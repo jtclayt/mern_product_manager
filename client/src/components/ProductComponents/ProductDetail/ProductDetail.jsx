@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
-import { navigate } from '@reach/router';
 import BASE_URL from '../../../constants';
-import ProductDetailView from './ProductDetailView/ProductDetailView';
+import ProductDetailView from './ProductDetailView';
 
 const ProductDetail = ({changePage, id}) => {
   const PRODUCT_URL = `${BASE_URL}/products/${id}`;
@@ -17,13 +16,7 @@ const ProductDetail = ({changePage, id}) => {
       .catch(err => console.error(err));
   }, [PRODUCT_URL, changePage]);
 
-  const handleDelete = () => {
-    Axios.delete(PRODUCT_URL)
-      .then(res => navigate('/products'))
-      .catch(err => console.error(err));
-  }
-
-  return <ProductDetailView handleDelete={handleDelete} product={product} />;
+  return <ProductDetailView product={product} />;
 }
 
 export default ProductDetail;

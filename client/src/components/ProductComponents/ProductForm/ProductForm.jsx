@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { navigate } from '@reach/router';
 import BASE_URL from '../../../constants';
-import ProductFormView from './ProductFormView/ProductFormView';
+import ProductFormView from './ProductFormView';
 
 const ProductForm = ({changePage, id}) => {
   const NEW_PRODUCT_URL = `${BASE_URL}/products`;

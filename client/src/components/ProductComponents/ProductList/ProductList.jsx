@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import BASE_URL from '../../../constants';
-import ProductListView from './ProductListView/ProductListView';
+import ProductListView from './ProductListView';
 
 
 const ProductList = ({changePage}) => {

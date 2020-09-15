@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from '@reach/router';
 import Button from 'react-bootstrap/Button';
 import './ProductDetail.css';
+import DeleteButton from '../../shared/DeleteButton/DeleteButton';
 
 const ProductDetailView = ({product, handleDelete}) => {
   return (
@@ -12,7 +13,7 @@ const ProductDetailView = ({product, handleDelete}) => {
       <Link to="update">
         <Button size="lg">Update</Button>
       </Link>
-      <Button onClick={handleDelete} size="lg" variant="danger">Delete</Button>
+      <DeleteButton id={product._id} />
     </article>
   );
 }
